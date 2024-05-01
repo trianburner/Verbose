@@ -1,0 +1,85 @@
+Program:
+    statements *= Statement
+;
+
+Statement:
+    (Print | Create | Assign | If | For)
+;
+
+Comment:
+    /-/-/.*$/
+;
+
+Print:
+    'print ' values += Value ';'
+;
+
+Create:
+    'create new variable called ' var = ID ('with the value of ' value = Expression)? ';'
+;
+
+Assign:
+    'assign the value of ' value = Expression 'to the variable ' var = ID ';'
+;
+
+If:
+    ifs += IfBlock (elses = ElseBlock)?
+;
+
+IfBlock:
+    'else'? 'if the value of ' value1 = Expression 'is ' comparison = Comparison value2 = Expression 'then do:'
+    statements *= Statement
+    ';'
+;
+
+ElseBlock:
+    'else then do:'
+    statements *= Statement
+    ';'
+;
+
+Comparison:
+    'equal to' | 'not equal to' | 'less than' | 'greater than' | 'less than or equal to' | 'greater than or equal to'
+;
+
+For:
+    'for variable ' var = ID 'with the values from ' range_start = Expression 'to ' range_end = Expression 'do:'
+    statements *= Statement
+    ';'
+;
+
+Expression:
+    term1 = Term (operation = Expr_Operation term2 = Expression)?
+;
+
+Term:
+    factor1 = Factor (operation = Term_Operation factor2 = Term)?
+;
+
+Factor:
+    value = Value
+;
+
+Expr_Operation:
+    '+' | '-'
+;
+
+Term_Operation:
+    '*' | '/' | '%'
+;
+
+Value:
+    Variable | String | Number
+;
+
+Variable:
+    ID
+;
+
+String:
+    STRING
+;
+
+Number:
+    INT | FLOAT
+;

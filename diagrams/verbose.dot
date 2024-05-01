@@ -1,0 +1,86 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2566519672464[ label="{Program|}"]
+
+2566519674448[ label="{*Statement|}"]
+
+2566519676432[ label="{Print|values: list[Value]\l}"]
+
+2566519681392[ label="{Create|var: ID\lvalue: Value\l}"]
+
+2566519680400[ label="{Assign|var: ID\l}"]
+
+2566519717104[ label="{If|}"]
+
+2566519712144[ label="{IfBlock|comparison: Comparison\l}"]
+
+2566519688336[ label="{ElseBlock|}"]
+
+2566519689328[ label="{For|var: ID\lrange_start: Value\lrange_end: Value\l}"]
+
+2566519706192[ label="{Expression|operation: Expr_Operation\l}"]
+
+2566519713136[ label="{Term|operation: Term_Operation\l}"]
+
+2566519719088[ label="{Factor|value: Value\l}"]
+
+
+
+2566519672464 -> 2566519674448[arrowtail=diamond, dir=both, headlabel="statements 0..*"]
+2566519674448 -> 2566519676432 [dir=back]
+2566519674448 -> 2566519681392 [dir=back]
+2566519674448 -> 2566519680400 [dir=back]
+2566519674448 -> 2566519717104 [dir=back]
+2566519674448 -> 2566519689328 [dir=back]
+2566519680400 -> 2566519706192[arrowtail=diamond, dir=both, headlabel="value "]
+2566519717104 -> 2566519712144[arrowtail=diamond, dir=both, headlabel="ifs 1..*"]
+2566519717104 -> 2566519688336[arrowtail=diamond, dir=both, headlabel="elses "]
+2566519712144 -> 2566519706192[arrowtail=diamond, dir=both, headlabel="value1 "]
+2566519712144 -> 2566519706192[arrowtail=diamond, dir=both, headlabel="value2 "]
+2566519712144 -> 2566519674448[arrowtail=diamond, dir=both, headlabel="statements 0..*"]
+2566519688336 -> 2566519674448[arrowtail=diamond, dir=both, headlabel="statements 0..*"]
+2566519689328 -> 2566519674448[arrowtail=diamond, dir=both, headlabel="statements 0..*"]
+2566519706192 -> 2566519713136[arrowtail=diamond, dir=both, headlabel="term1 "]
+2566519706192 -> 2566519706192[arrowtail=diamond, dir=both, headlabel="term2 "]
+2566519713136 -> 2566519719088[arrowtail=diamond, dir=both, headlabel="factor1 "]
+2566519713136 -> 2566519713136[arrowtail=diamond, dir=both, headlabel="factor2 "]
+match_rules [ shape=plaintext, label=< <table>
+	<tr>
+		<td><b>Comment</b></td><td>-- .*$</td>
+	</tr>
+	<tr>
+		<td><b>Comparison</b></td><td>equal to|not equal to|less than|greater than|less than or equal to|greater than or equal to</td>
+	</tr>
+	<tr>
+		<td><b>Expr_Operation</b></td><td>+|-</td>
+	</tr>
+	<tr>
+		<td><b>Number</b></td><td>INT|FLOAT</td>
+	</tr>
+	<tr>
+		<td><b>String</b></td><td>STRING</td>
+	</tr>
+	<tr>
+		<td><b>Term_Operation</b></td><td>*|/|%</td>
+	</tr>
+	<tr>
+		<td><b>Value</b></td><td>ID|STRING</td>
+	</tr>
+	<tr>
+		<td><b>Variable</b></td><td>ID</td>
+	</tr>
+</table> >]
+
+
+}

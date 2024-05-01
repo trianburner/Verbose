@@ -1,0 +1,16 @@
+-- Example FizzBuzz program written in Verbose
+
+create new variable called START_NUM with the value of 1;
+create new variable called END_NUM with the value of 100;
+
+for variable num with the values from START_NUM to END_NUM do:
+    if the value of num % 15 is equal to 0 then do:
+        print "FizzBuzz";
+    ; else if the value of num % 3 is equal to 0 then do:
+        print "Fizz";
+    ; else if the value of num % 5 is equal to 0 then do:
+        print "Buzz";
+    ; else then do:
+        print num;
+    ;
+;

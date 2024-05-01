@@ -1,0 +1,22 @@
+-- Target Fibonacci number to calculate
+create new variable called target with the value of 10;
+
+-- Instantiate starting conditions
+create new variable called F_0 with the value of 0;
+create new variable called F_1 with the value of 1;
+
+if the value of target is equal to 0 then do:
+    print "Fibonacci_" target " is equal to " F_0;
+; else if the value of target is equal to 1 then do:
+    print "Fibonacci_" target " is equal to " F_1;
+; else then do:
+    print "Fibonacci_" 0 " is equal to " F_0;
+    print "Fibonacci_" 1 " is equal to " F_1;
+    create new variable called temp;
+    for variable i with the values from 2 to target do:
+        assign the value of F_0 + F_1 to the variable temp;
+        assign the value of F_1 to the variable F_0;
+        assign the value of temp to the variable F_1;
+        print "Fibonacci_" i " is equal to " F_1;
+    ;
+;

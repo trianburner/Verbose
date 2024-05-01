@@ -1,0 +1,27 @@
+-- Example Verbose Program to Test all Statement Types
+
+print "Hello, " "World!";
+
+create new variable called x;
+create new variable called y with the value of 14;
+create new variable called z with the value of "Hello";
+
+print "Variable y has the value of " y;
+
+assign the value of y + 1 to the variable y;
+
+print "Variable y has the value of " y;
+
+if the value of y % 3 is equal to 0 then do:
+    print "True";
+; else if the value of 15 is equal to 1 then do:
+    print "True2";
+; else then do:
+    print "False";
+;
+
+print "After condition";
+
+for variable x with the values from 1 to 5 do:
+    print "Loop " x;
+;
